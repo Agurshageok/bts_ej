@@ -1,0 +1,12 @@
+{
+  "name": "bts",
+  "version": "1.0.0",
+  "description": "cli app for Binary search tree",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "z.f",
+  "license": "ISC",
+  "type": "module"
+}
