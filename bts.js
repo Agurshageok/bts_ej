@@ -111,6 +111,29 @@ class BinarySearchTree {
         }
     }
 
+    betterSearch(marca){
+        if (this.root.data === marca) {
+            return true;
+        } else if( this.root.data > marca) {
+            return this.betterSearchChildren(this.root.left, marca)
+        } else {
+            return this.betterSearchChildren(this.root.right, marca)
+        }
+    }
+
+    betterSearchChildren(node, marca){
+        if (node === null) {
+            return false;
+        }
+        if (node.data === marca) {
+            return true;
+        } else if( node.data > marca) {
+           return  this.betterSearchChildren(node.left, marca)
+        } else {
+           return  this.betterSearchChildren(node.right, marca)
+        }
+    }
+
 }
 
 export {Node, BinarySearchTree}
