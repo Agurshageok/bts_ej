@@ -11,6 +11,7 @@ class BinarySearchTree {
         this.root = null;
     }
 
+    //Insertar de manera que quede ordenado. 
     insert(data) {
         var newNode = new Node(data)
 
@@ -20,9 +21,9 @@ class BinarySearchTree {
             this.insertNode(this.root, newNode)
     }
 
+    //Metodo Aux, no usar
     insertNode(node, newNode) {
         if (newNode.data < node.data) {
-            // 
             if (node.left === null) {
                 node.left = newNode
             } else {
@@ -37,6 +38,7 @@ class BinarySearchTree {
         }
     }
 
+    //recorre el arbol mostrando los datos. No queda muy bonito. 
     inorder(node){
         if (node !== null) {
             this.inorder(node.left)
@@ -45,6 +47,7 @@ class BinarySearchTree {
         }
     }
 
+    //Lo de arriba pero con true/false. Queda peor xD.
     inorder_Leaf(node){
         if (node !== null) {
             this.inorder_Leaf(node.left)
@@ -57,6 +60,7 @@ class BinarySearchTree {
         return this.root;
     }
 
+    //Metodo Aux
     getHeight(node, c){
         //console.log("Nodo: "+node.data+" - Altura: "+c)
         var r = c;
@@ -72,14 +76,22 @@ class BinarySearchTree {
        return this.max(l, r); 
     }
 
+    //Devuelve la altura del arbol desde su raiz
     getHeightTotal(){
         return this.getHeight(this.root, 0);
     }
 
+    //devuelve la altura desde un nodo en particular
+    getHeightFromNode(node){
+        return this.getHeight(node, 0);
+    }
+
+    //Devuelve si el nodo es hoja
     isLeaf(node){
         return node.left === null && node.right === null;
     }
 
+    //Metodo meh, lo arme porque no sabia si hay uno definido en JS xD
     max(l, r){
         if (l < r) {
             return r
@@ -88,6 +100,7 @@ class BinarySearchTree {
         }
     }
 
+    //Bad Search
     searchFor(marca){
         if (this.root.data === marca) {
             return true;
@@ -98,6 +111,7 @@ class BinarySearchTree {
         }
     }
 
+    //Metodo Aux
     searchForChildren(node, marca){
         if (node === null) {
             return false;
@@ -111,6 +125,7 @@ class BinarySearchTree {
         }
     }
 
+    //Algoritmo de busqueda como del apunte. 
     betterSearch(marca){
         if (this.root.data === marca) {
             return true;
@@ -121,6 +136,7 @@ class BinarySearchTree {
         }
     }
 
+    //Metodo Aux
     betterSearchChildren(node, marca){
         if (node === null) {
             return false;

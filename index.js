@@ -8,31 +8,37 @@
 
 import {BinarySearchTree} from './bts.js'
 
+const buildTree = (numbers) => {
+    var bts = new BinarySearchTree();
+    numbers.forEach(element => {
+        bts.insert(element)
+   });
+   return bts;
+}
+
 const resolver = (numbers, notFound) => {
     const start = Date.now();
-    const buildTree = (numbers) => {
-        var bts = new BinarySearchTree();
-        numbers.forEach(element => {
-            bts.insert(element)
-       });
-       return bts;
-    }
-    
-    //console.log("tree");
+    console.log(`starting timer... `); 
+
+    //Construir el arbol
     const tree = buildTree(numbers);
-    var root = tree.getRoot();
+
+    //Resolver altura
     console.log("Altura");
     console.log(tree.getHeightTotal());
     
-    
-    console.log(`starting timer ${start}... Searching for:${notFound}`);
+    //Busqueda 
+    console.log(`Searching for:${notFound}`);
     const isFound = tree.betterSearch(notFound);
+    
+    //diferencia de tiempos
     const end = Date.now();
     var elapsed = end - start
     console.log(`seconds elapsed = ${elapsed} is found? ${isFound}`);
     return elapsed;
 }
 
+//Sacar los numeritos de la consola
 const numeros = process.argv.slice(3);
 const noEncontrado = process.argv[2];
 
