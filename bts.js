@@ -100,32 +100,7 @@ class BinarySearchTree {
         }
     }
 
-    //Bad Search
-    searchFor(marca){
-        if (this.root.data === marca) {
-            return true;
-        } else {
-            return (this.searchForChildren(this.root.left, marca) 
-                    || 
-                   this.searchForChildren(this.root.right, marca))
-        }
-    }
-
-    //Metodo Aux
-    searchForChildren(node, marca){
-        if (node === null) {
-            return false;
-        }
-        if (node.data === marca) {
-            return true;
-        } else {
-            return (this.searchForChildren(node.left, marca) 
-                    || 
-                   this.searchForChildren(node.right, marca))
-        }
-    }
-
-    //Algoritmo de busqueda como del apunte. 
+    //Algoritmo de busqueda 
     betterSearch(marca){
         if (this.root.data === marca) {
             return true;

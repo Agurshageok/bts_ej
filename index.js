@@ -17,11 +17,11 @@ const buildTree = (numbers) => {
 }
 
 const resolver = (numbers, notFound) => {
-    const start = Date.now();
-    console.log(`starting timer... `); 
-
     //Construir el arbol
     const tree = buildTree(numbers);
+
+    const start = Date.now();
+    console.log(`starting timer... `); 
 
     //Resolver altura
     console.log("Altura");
@@ -34,7 +34,7 @@ const resolver = (numbers, notFound) => {
     //diferencia de tiempos
     const end = Date.now();
     var elapsed = end - start
-    console.log(`seconds elapsed = ${elapsed} is found? ${isFound}`);
+    console.log(`miliseconds elapsed = ${elapsed} is ${notFound} found? ${isFound}`);
     return elapsed;
 }
 
@@ -55,4 +55,4 @@ numeros.sort()
 console.log('Numbers: ')
 console.log(numeros)
 var elapsedsort = resolver(numeros, noEncontrado)
-console.log(`time elapsed with random input: ${elapsedRandom} and with sorted input: ${elapsedsort}`)
+console.log(`time elapsed with random input: ${elapsedRandom} ms and with sorted input: ${elapsedsort} ms`)
